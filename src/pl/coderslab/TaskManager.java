@@ -14,6 +14,8 @@ public class TaskManager {
 
     public static void main(String[] args) {
         tasks = loadTasks(FILE_NAME); //wczytuje plik z tasks i ładuje do tablicy, która będzie dalej używana
+        chooseOptions(OPTIONS); //możliwość wybrania dostępnych opcji , potem również w pętli
+
 
     }
 
@@ -31,6 +33,13 @@ public class TaskManager {
             System.out.println("File not found");
         }
         return tasks;
+    }
+
+    public static void chooseOptions(String[] options) {
+        System.out.println(ConsoleColors.BLUE + "\nPlease select an option:" + ConsoleColors.RESET);
+        for (String option : options) {
+            System.out.println(option);
+        }
     }
 
 }
