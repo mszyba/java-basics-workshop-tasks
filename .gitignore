@@ -16,3 +16,6 @@ _site/
 *.logs
 .idea/
 .eclipse
+
+tasks.csv
+tasks*.csv
