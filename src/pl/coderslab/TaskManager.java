@@ -26,7 +26,7 @@ public class TaskManager {
 
             switch (inputScanner) {
                 case "add":
-                    //addTask();
+                    addTask();
                     break;
                 case "remove":
                     //removeTask(tasks);
@@ -81,5 +81,42 @@ public class TaskManager {
             e.printStackTrace();
         }
     }
+
+    public static void addTask() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please add task description");
+        String descriptionTask = scanner.nextLine();
+
+        String dateTask;
+        while (true) {
+            System.out.println("Please add task due date (format yyyy-mm-dd)");
+            dateTask = scanner.nextLine();
+            if (dateTask.matches("\\d{4}-\\d{2}-\\d{2}")) {
+                // brakuje jeszcze dokładnego sprawdzenia czy to jest poprawna data,
+                // ale bez klasy Date to za dużo kodu
+                break;
+            } else {
+                System.out.println(ConsoleColors.RED + "Date format: yyyy-mm-dd" + ConsoleColors.RESET);
+            }
+        }
+
+        String importantTask;
+        while (true) {
+            System.out.println("Is your task is important: true/false");
+            importantTask = scanner.nextLine();
+            if (importantTask.equals("true") || importantTask.equals("false")) {
+                break;
+            } else {
+                System.out.println(ConsoleColors.RED + "true or false" + ConsoleColors.RESET);
+            }
+        }
+
+        String[] oneTaskAdd = {descriptionTask, dateTask, importantTask};
+        tasks = Arrays.copyOf(tasks, tasks.length + 1);
+        tasks[tasks.length - 1] = oneTaskAdd;
+
+        System.out.println(ConsoleColors.YELLOW + "Value was successfully added" + ConsoleColors.RESET);
+    }
+
 
 }
