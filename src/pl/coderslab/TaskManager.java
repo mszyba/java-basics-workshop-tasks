@@ -16,6 +16,32 @@ public class TaskManager {
         tasks = loadTasks(FILE_NAME); //wczytuje plik z tasks i ładuje do tablicy, która będzie dalej używana
         chooseOptions(OPTIONS); //możliwość wybrania dostępnych opcji , potem również w pętli
 
+        Scanner scanner = new Scanner(System.in);
+
+        while (scanner.hasNextLine()) {
+            String inputScanner = scanner.nextLine();
+
+            switch (inputScanner) {
+                case "add":
+                    addTask();
+                    break;
+                case "remove":
+                    removeTask(tasks);
+                    break;
+                case "list":
+                    listTasks(tasks);
+                    break;
+                case "exit":
+                    saveTasksToFile(FILE_NAME, tasks);
+                    System.out.println(ConsoleColors.RED_BOLD + "Bye, bye");
+                    break;
+                default:
+                    System.out.println(ConsoleColors.RED + "Please select a correct option." + ConsoleColors.RESET);
+                    break;
+            }
+            chooseOptions(OPTIONS);
+        }
+
 
     }
 
