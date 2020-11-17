@@ -1,7 +1,10 @@
 package pl.coderslab;
 
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -23,13 +26,13 @@ public class TaskManager {
 
             switch (inputScanner) {
                 case "add":
-                    addTask();
+                    //addTask();
                     break;
                 case "remove":
-                    removeTask(tasks);
+                    //removeTask(tasks);
                     break;
                 case "list":
-                    listTasks(tasks);
+                    //listTasks(tasks);
                     break;
                 case "exit":
                     saveTasksToFile(FILE_NAME, tasks);
@@ -65,6 +68,17 @@ public class TaskManager {
         System.out.println(ConsoleColors.BLUE + "\nPlease select an option:" + ConsoleColors.RESET);
         for (String option : options) {
             System.out.println(option);
+        }
+    }
+
+
+    public static void saveTasksToFile(String fileName, String[][] tab) {
+        try (FileWriter fileWriter = new FileWriter(fileName)) {
+            for (String[] stringsArray : tab) {
+                fileWriter.write(StringUtils.join(stringsArray, ",") + "\n");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
