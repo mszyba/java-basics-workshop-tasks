@@ -3,6 +3,7 @@ package pl.coderslab;
 
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.validator.GenericValidator;
 
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -91,9 +92,7 @@ public class TaskManager {
         while (true) {
             System.out.println("Please add task due date (format yyyy-mm-dd)");
             dateTask = scanner.nextLine();
-            if (dateTask.matches("\\d{4}-\\d{2}-\\d{2}")) {
-                // brakuje jeszcze dokładnego sprawdzenia czy to jest poprawna data,
-                // ale bez klasy Date to za dużo kodu
+            if (GenericValidator.isDate(dateTask, "yyyy-MM-dd", true)) {
                 break;
             } else {
                 System.out.println(ConsoleColors.RED + "Date format: yyyy-mm-dd" + ConsoleColors.RESET);
