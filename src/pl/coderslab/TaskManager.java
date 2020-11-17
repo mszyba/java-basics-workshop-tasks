@@ -38,6 +38,7 @@ public class TaskManager {
                 case "exit":
                     saveTasksToFile(FILE_NAME, tasks);
                     System.out.println(ConsoleColors.RED_BOLD + "Bye, bye");
+                    System.exit(1);
                     break;
                 default:
                     System.out.println(ConsoleColors.RED + "Please select a correct option." + ConsoleColors.RESET);
