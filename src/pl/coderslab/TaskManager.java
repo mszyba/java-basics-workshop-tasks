@@ -33,7 +33,7 @@ public class TaskManager {
                     removeTask(tasks);
                     break;
                 case "list":
-                    //listTasks(tasks);
+                    listTasks(tasks);
                     break;
                 case "exit":
                     saveTasksToFile(FILE_NAME, tasks);
@@ -45,8 +45,6 @@ public class TaskManager {
             }
             chooseOptions(OPTIONS);
         }
-
-
     }
 
     public static String[][] loadTasks(String fileName) {
@@ -139,5 +137,12 @@ public class TaskManager {
         }
     }
 
+    public static void listTasks(String[][] tab) {
+        int i = 0;
+        for (String[] oneTask : tab) {
+            System.out.println(i + " : " + oneTask[0] + " " + oneTask[1] + " " + oneTask[2]);
+            i++;
+        }
+    }
 
 }
