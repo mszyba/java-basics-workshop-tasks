@@ -1,6 +1,7 @@
 package pl.coderslab;
 
 
+import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.FileReader;
@@ -29,7 +30,7 @@ public class TaskManager {
                     addTask();
                     break;
                 case "remove":
-                    //removeTask(tasks);
+                    removeTask(tasks);
                     break;
                 case "list":
                     //listTasks(tasks);
@@ -116,6 +117,26 @@ public class TaskManager {
         tasks[tasks.length - 1] = oneTaskAdd;
 
         System.out.println(ConsoleColors.YELLOW + "Value was successfully added" + ConsoleColors.RESET);
+    }
+
+    public static void removeTask(String[][] tab) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please select number to remove:");
+        try {
+            int taskNumber = Integer.parseInt(scanner.nextLine());
+
+            if (taskNumber >= 0 && taskNumber < tab.length) {
+                tasks = ArrayUtils.remove(tab, taskNumber);
+                System.out.println(ConsoleColors.YELLOW + "Value was successfully deleted" + ConsoleColors.RESET);
+            } else {
+                System.out.println(ConsoleColors.RED
+                        + "Task not exist. Please give number between 0 and " + (tab.length - 1)
+                        + ". Try again"
+                        + ConsoleColors.RESET);
+            }
+        } catch (NumberFormatException e) {
+            System.out.println(ConsoleColors.RED + "Incorrect argument passed. Try again." + ConsoleColors.RESET);
+        }
     }
 
 
