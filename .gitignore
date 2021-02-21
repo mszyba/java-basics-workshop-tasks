@@ -10,13 +10,10 @@ target/*
 _site/
 
 *.class
-*.jar
 *.war
 *.ear
 *.logs
 .idea/
 .eclipse
 
-tasks.csv
-tasks*.csv
 sampleInteraction.gif
