@@ -15,10 +15,10 @@ public class TaskManager {
 
     static final String FILE_NAME = "tasks.csv";
     static final String[] OPTIONS = {"add", "remove", "list", "exit"};
-    static String[][] tasks;
+    static String[][] tasksArray;
 
     public static void main(String[] args) {
-        tasks = loadTasks(FILE_NAME); //wczytuje plik z tasks i ładuje do tablicy, która będzie dalej używana
+        tasksArray = loadTasks(FILE_NAME); //wczytuje plik z tasks i ładuje do tablicy, która będzie dalej używana
         chooseOptions(OPTIONS); //możliwość wybrania dostępnych opcji , potem również w pętli
 
         Scanner scanner = new Scanner(System.in);
@@ -31,13 +31,13 @@ public class TaskManager {
                     addTask();
                     break;
                 case "remove":
-                    removeTask(tasks);
+                    removeTask(tasksArray);
                     break;
                 case "list":
-                    listTasks(tasks);
+                    listTasks(tasksArray);
                     break;
                 case "exit":
-                    saveTasksToFile(FILE_NAME, tasks);
+                    saveTasksToFile(FILE_NAME, tasksArray);
                     System.out.println(ConsoleColors.RED_BOLD + "Bye, bye");
                     System.exit(1);
                     break;
@@ -111,8 +111,8 @@ public class TaskManager {
         }
 
         String[] oneTaskAdd = {descriptionTask, dateTask, importantTask};
-        tasks = Arrays.copyOf(tasks, tasks.length + 1);
-        tasks[tasks.length - 1] = oneTaskAdd;
+        tasksArray = Arrays.copyOf(tasksArray, tasksArray.length + 1);
+        tasksArray[tasksArray.length - 1] = oneTaskAdd;
 
         System.out.println(ConsoleColors.YELLOW + "Value was successfully added" + ConsoleColors.RESET);
     }
@@ -124,7 +124,7 @@ public class TaskManager {
             int taskNumber = Integer.parseInt(scanner.nextLine());
 
             if (taskNumber >= 0 && taskNumber < tab.length) {
-                tasks = ArrayUtils.remove(tab, taskNumber);
+                tasksArray = ArrayUtils.remove(tab, taskNumber);
                 System.out.println(ConsoleColors.YELLOW + "Value was successfully deleted" + ConsoleColors.RESET);
             } else {
                 System.out.println(ConsoleColors.RED
