@@ -1,20 +1,24 @@
-# Aplikacja do prostego zarządzania zadaniami
+# Simply Tasks Manager
 
-Pierwszy program do prostego zarządzania zadaniami poprzez konsolę.
+This simply app allows manage yor very simply tasks by the console. 
 
-## Jak to działa?
-Wywołujesz program w konsoli. Poprzez wpisywanie komend w konsoli możesz:
+## How it works?
+You have to on your OS have installed Java. Then you can copy directory `/executable_JAR_file`. Input in this directory and run command `java -jar java-basics-workshop-tasks-1.0`. 
 
-`add` - dodać nowe zadanie do pliku
+You can use command:
 
-`remove` - usunąć jedno z istniejących zadań
+`add` - to add new tasks with description, date and important flag
 
-`list` - wyświetlić listę zadań
+`list` - to show your tasks
 
-`exit` - wyjść z programu
+`remove` - to delete your task by id
+
+`exit` - exit app ;-)
+
+Tasks are saved to `.csv` file.
+
+## Screenshot
 
 ![CodersLab-no-background](https://lms.coderslab.pl/presentations//JEE/pl/4.1/W/M_01_S_10/f78ab30f-4ea4-4602-9aef-60671c11f0cf/student_content/images/sampleInteraction.gif)
 
-Zadania przechowywane są w pliku `tasks.csv`
-
-### Powodzenia!
+## Enjoy!
